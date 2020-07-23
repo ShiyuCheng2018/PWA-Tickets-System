@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import App from './todoReduxClass/App';
 import * as serviceWorker from './serviceWorker';
+import store from "./todoReduxClass/store";
 
 ReactDOM.render(
   <React.StrictMode>
