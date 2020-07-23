@@ -1,9 +1,9 @@
-import {SET_FILTER} from "../actions/actionTypes";
+import {SET_TODO_TEXT} from "../actions/actionTypes";
 
-const filter = (state="ALL", action) =>{
+const filter = (state="", action) =>{
     switch (action.type) {
-        case SET_FILTER:
-            return action.filter
+        case SET_TODO_TEXT:
+            return action.text
         default: return state
     }
 }
