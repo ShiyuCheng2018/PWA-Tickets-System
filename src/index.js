@@ -7,11 +7,12 @@ import {applyMiddleware, createStore, compose} from "redux";
 import {Provider} from "react-redux";
 import thunkMiddleware from "redux-thunk";
 import loggerMiddleware from "./todoReduxClass/middlewares/logger"
-import rootReducer from "./todoReduxClass/reducers"
+import rootReducer from "./todoReduxClass/reducers";
+import loggerEnhancer from "./todoReduxClass/enhancers/logger";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(rootReducer, /* preloadedState, */ composeEnhancers(
-    applyMiddleware(thunkMiddleware, loggerMiddleware)
+    applyMiddleware(thunkMiddleware), loggerEnhancer
 ));
 
 ReactDOM.render(
