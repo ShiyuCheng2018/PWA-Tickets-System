@@ -2,11 +2,11 @@ import {connect} from "react-redux";
 import TodoList from "../components/TodoList";
 import {fetchTodos, toggleTodo} from "../actions";
 import {getVisibleTodos} from "../selectors";
-
+import {toJS} from "../HOCs/toJS";
 
 
 const mapStateToProps = (state) =>({
-    todos: getVisibleTodos(state).toJS()
+    todos: getVisibleTodos(state)
 });
 
 const mapDispatchToProps = (dispatch) =>({
@@ -14,4 +14,4 @@ const mapDispatchToProps = (dispatch) =>({
     fetchTodos: ()=>dispatch(fetchTodos())
 })
 
-export const ToDoListContainer =  connect(mapStateToProps, mapDispatchToProps)(TodoList)
+export const ToDoListContainer =  connect(mapStateToProps, mapDispatchToProps)(TodoList)(toJS(TodoList))
