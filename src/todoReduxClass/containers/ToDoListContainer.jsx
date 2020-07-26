@@ -6,7 +6,7 @@ import {getVisibleTodos} from "../selectors";
 
 
 const mapStateToProps = (state) =>({
-    todos: getVisibleTodos(state)
+    todos: getVisibleTodos(state).toJS()
 });
 
 const mapDispatchToProps = (dispatch) =>({
